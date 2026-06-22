@@ -1,12 +1,41 @@
-# Build Applications with GitHub Copilot Agent Mode
+# Octofit Logic Tier (Express + MongoDB)
 
-<img src="https://octodex.github.com/images/Professortocat_v2.png" align="right" height="200px" />
+This folder contains a minimal Express logic tier for the Octofit exercise.
 
-Hey Yogeshsaini9568!
+What is included:
 
-Mona here. I'm done preparing your exercise. Hope you enjoy! 💚
+- MongoDB connection via MONGODB_URI (defaults to mongodb://localhost:27017/octofit_db)
+- Mongoose models: User, Team, Activity, Workout
+- Routes: /users, /teams, /activities, /workouts, /leaderboard
+- Health endpoint: GET /health
+- Seed script: `npm run seed` (runs scripts/seed.js)
 
-Remember, it's self-paced so feel free to take a break! ☕️
+Quick start:
 
-[![](https://img.shields.io/badge/Go%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/Yogeshsaini9568/skills-build-applications-w-copilot-agent-mode/issues/1)
+1. Install dependencies:
 
+   npm install
+
+2. Start MongoDB (local or provide MONGODB_URI in a .env file)
+
+3. Seed example data:
+
+   npm run seed
+
+4. Run the server:
+
+   npm start
+
+Endpoints:
+- GET /health
+- GET/POST /users
+- GET /users/:id
+- GET/POST /teams
+- POST /teams/:id/members { userId }
+- GET/POST /activities
+- GET/POST /workouts
+- GET /leaderboard
+
+Notes:
+- The seed script wipes relevant collections first.
+- Points are a simple derived value in activities and propagated to users and teams.
